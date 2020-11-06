@@ -1,5 +1,5 @@
-const config = {
-  verbose: true
+export default {
+  verbose: true,
+  extensions: ['ts'],
+  require: ['esm', 'esbuild-register'],
 };
-
-export default config;
