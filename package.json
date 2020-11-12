@@ -31,7 +31,6 @@
     "clinton": "^0.14.0",
     "conventional-changelog-cli": "^2.1.1",
     "esbuild-register": "^1.1.0",
-    "eslint": "^7.12.1",
     "esm": "^3.2.25",
     "husky": "^4.3.0",
     "posthtml": "^0.13.4",
@@ -39,5 +38,13 @@
     "tsup": "^3.7.1",
     "typescript": "^4.0.5",
     "xo": "^0.34.2"
+  },
+  "funding": {
+    "type": "patreon",
+    "url": "https://opencollective.com/posthtml"
+  },
+  "collective": {
+    "type": "opencollective",
+    "url": "https://opencollective.com/posthtml"
   }
 }
