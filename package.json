@@ -1,6 +1,6 @@
 {
   "name": "posthtml-iconify",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "PostHTML plugin description",
   "license": "MIT",
   "repository": "arm32x/posthtml-iconify",
@@ -10,7 +10,6 @@
     "node": ">=10"
   },
   "scripts": {
-    "version": "conventional-changelog -i changelog.md -s -r 0 && git add changelog.md",
     "build": "rm -rf dist && tsup src/*.ts --format cjs --dts --minify",
     "dev": "npm run build -- --watch",
     "test": "c8 ava"

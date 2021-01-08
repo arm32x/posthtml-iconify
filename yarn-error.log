@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/bin/node /usr/bin/yarn add --dev @types/zombie
+  /usr/bin/node /usr/bin/yarn publish
 
 PATH: 
   /opt/jython/bin/:/home/arm32x/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/arm32x/.cargo/bin:/home/arm32x/.yarn/bin:/home/arm32x/.gem/ruby/2.7.0/bin
@@ -14,25 +14,25 @@ Platform:
   linux x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@types%2fzombie: Not found
-      at Request.params.callback [as _callback] (/usr/lib/node_modules/yarn/lib/cli.js:66988:18)
-      at Request.self.callback (/usr/lib/node_modules/yarn/lib/cli.js:140749:22)
-      at Request.emit (node:events:376:20)
-      at Request.<anonymous> (/usr/lib/node_modules/yarn/lib/cli.js:141721:10)
-      at Request.emit (node:events:376:20)
-      at IncomingMessage.<anonymous> (/usr/lib/node_modules/yarn/lib/cli.js:141643:12)
-      at Object.onceWrapper (node:events:482:28)
-      at IncomingMessage.emit (node:events:388:22)
-      at endReadableNT (node:internal/streams/readable:1295:12)
-      at processTicksAndRejections (node:internal/process/task_queues:80:21)
+  Error: canceled
+      at Interface.<anonymous> (/usr/lib/node_modules/yarn/lib/cli.js:137009:13)
+      at Interface.emit (node:events:376:20)
+      at Interface._ttyWrite (node:readline:909:16)
+      at ReadStream.onkeypress (node:readline:234:10)
+      at ReadStream.emit (node:events:376:20)
+      at emitKeys (node:internal/readline/utils:358:14)
+      at emitKeys.next (<anonymous>)
+      at ReadStream.onData (node:readline:1178:36)
+      at ReadStream.emit (node:events:376:20)
+      at addChunk (node:internal/streams/readable:305:12)
 
 npm manifest: 
   {
     "name": "posthtml-iconify",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "description": "PostHTML plugin description",
     "license": "MIT",
-    "repository": "https://github.com/arm32x/posthtml-iconify",
+    "repository": "arm32x/posthtml-iconify",
     "author": "ARM32",
     "main": "dist",
     "engines": {
@@ -42,19 +42,24 @@ npm manifest:
       "version": "conventional-changelog -i changelog.md -s -r 0 && git add changelog.md",
       "build": "rm -rf dist && tsup src/*.ts --format cjs --dts --minify",
       "dev": "npm run build -- --watch",
-      "test": "c8 ava",
-      "pretest": "clinton"
+      "test": "c8 ava"
     },
     "keywords": [
       "html",
       "posthtml",
       "posthtml-plugin"
     ],
+    "dependencies": {
+      "@iconify/json": "^1.1.282",
+      "@iconify/json-tools": "^1.0.10",
+      "posthtml-parser": "^0.6.0"
+    },
     "devDependencies": {
       "@antfu/eslint-config-ts": "^0.4.3",
       "@commitlint/cli": "^11.0.0",
       "@commitlint/config-angular": "^11.0.0",
       "@iconify/types": "^1.0.6",
+      "@types/js-beautify": "^1.13.1",
       "@types/node": "^14.14.6",
       "ava": "^3.13.0",
       "c8": "^7.3.5",
@@ -63,16 +68,15 @@ npm manifest:
       "esbuild-register": "^1.1.0",
       "esm": "^3.2.25",
       "husky": "^4.3.0",
+      "js-beautify": "^1.13.0",
       "posthtml": "^0.13.4",
+      "posthtml-attrs-sorter": "^1.1.0",
+      "posthtml-render": "^1.4.0",
       "ts-node": "^9.0.0",
       "tsup": "^3.7.1",
       "typescript": "^4.0.5",
       "xo": "^0.34.2",
       "zombie": "^6.1.4"
-    },
-    "dependencies": {
-      "@iconify/json-tools": "^1.0.10",
-      "posthtml-parser": "^0.6.0"
     }
   }
 
@@ -378,6 +382,11 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/@iconify/json-tools/-/json-tools-1.0.10.tgz#d9a7050dbbe8bb29d684d4b3f9446ed2d0bea3cc"
     integrity sha512-LFelJDOLZ6JHlmlAkgrvmcu4hpNPB91KYcr4f60D/exzU1eNOb4/KCVHIydGHIQFaOacIOD+Xy+B7P1z812cZg==
   
+  "@iconify/json@^1.1.282":
+    version "1.1.282"
+    resolved "https://registry.yarnpkg.com/@iconify/json/-/json-1.1.282.tgz#d603572c14c2d1d2cc6dbeb3fb83353958a8c5d3"
+    integrity sha512-eLbN5gKOJeN9M1DG6+Z/HXR1WDku9E4CLvEtETPJLN5Jzsz26jSjvFpzdF10tpY40qDynqAHAktEjMmRL1IRyA==
+  
   "@iconify/types@^1.0.6":
     version "1.0.6"
     resolved "https://registry.yarnpkg.com/@iconify/types/-/types-1.0.6.tgz#87a0409d9ce58a04e6c76f89637d69c81bc0d942"
@@ -451,6 +460,11 @@ Lockfile:
     version "2.0.3"
     resolved "https://registry.yarnpkg.com/@types/istanbul-lib-coverage/-/istanbul-lib-coverage-2.0.3.tgz#4ba8ddb720221f432e443bd5f9117fd22cfd4762"
     integrity sha512-sz7iLqvVUg1gIedBOvlkxPlc8/uVzyS5OwGz1cKjXzkl3FpL3al0crU8YGU1WoHkxn0Wxbw5tyi6hvzJKNzFsw==
+  
+  "@types/js-beautify@^1.13.1":
+    version "1.13.1"
+    resolved "https://registry.yarnpkg.com/@types/js-beautify/-/js-beautify-1.13.1.tgz#d4739266c5dcad561226cd1ec5407fa0542d863d"
+    integrity sha512-F3YCoZS//n74Wu+hxoVrxX1H8qaWo+WAgQ+ObmFH4ZFwI0fIwiJTW7pvkCRShw8ST7+ej7sB68K+ZHAZgK4S4Q==
   
   "@types/json-schema@^7.0.3":
     version "7.0.6"
@@ -569,6 +583,11 @@ Lockfile:
     version "2.0.5"
     resolved "https://registry.yarnpkg.com/abab/-/abab-2.0.5.tgz#c0b678fb32d60fc1219c784d6a826fe385aeb79a"
     integrity sha512-9IK9EadsbHo6jLWIpxpR6pL0sazTXV6+SQv25ZB+F7Bj9mJNaOc4nCRabwd5M/JwmUa8idz6Eci6eKfJryPs6Q==
+  
+  abbrev@1:
+    version "1.1.1"
+    resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"
+    integrity sha512-nne9/IiQ/hzIhY6pdDnbBtz7DjPTKrY00P/zvPSm5pOFkl6xuGrGnXn/VtTNNfNtAfZ9/1RtehkszU9qcTii0Q==
   
   acorn-globals@^4.1.0:
     version "4.3.4"
@@ -1638,7 +1657,7 @@ Lockfile:
     dependencies:
       delayed-stream "~1.0.0"
   
-  commander@^2.7.1, commander@^2.9.0:
+  commander@^2.19.0, commander@^2.7.1, commander@^2.9.0:
     version "2.20.3"
     resolved "https://registry.yarnpkg.com/commander/-/commander-2.20.3.tgz#fd485e84c03eb4881c20722ba48035e8531aeb33"
     integrity sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==
@@ -1704,6 +1723,14 @@ Lockfile:
       env-paths "^1.0.0"
       mkdirp "^0.5.1"
       pkg-up "^1.0.0"
+  
+  config-chain@^1.1.12:
+    version "1.1.12"
+    resolved "https://registry.yarnpkg.com/config-chain/-/config-chain-1.1.12.tgz#0fde8d091200eb5e808caf25fe618c02f48e4efa"
+    integrity sha512-a1eOIcu8+7lUInge4Rpf/n4Krkf3Dd9lqhljRzII1/Zno/kRtUWnznPO3jOKBmTEktkt3fkxisUcivoj0ebzoA==
+    dependencies:
+      ini "^1.3.4"
+      proto-list "~1.2.1"
   
   configstore@^3.0.0:
     version "3.1.5"
@@ -2406,6 +2433,16 @@ Lockfile:
       bluebird "^3.0.5"
       commander "^2.9.0"
       lru-cache "^3.2.0"
+      sigmund "^1.0.1"
+  
+  editorconfig@^0.15.3:
+    version "0.15.3"
+    resolved "https://registry.yarnpkg.com/editorconfig/-/editorconfig-0.15.3.tgz#bef84c4e75fb8dcb0ce5cee8efd51c15999befc5"
+    integrity sha512-M9wIMFx96vq0R4F+gRpY3o2exzb8hEj/n9S8unZtHSvYjibBp/iMufSzvmOcV/laG0ZtuTVGtiJggPOSW2r93g==
+    dependencies:
+      commander "^2.19.0"
+      lru-cache "^4.1.5"
+      semver "^5.6.0"
       sigmund "^1.0.1"
   
   elliptic@^6.5.3:
@@ -4460,6 +4497,17 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/joycon/-/joycon-2.2.5.tgz#8d4cf4cbb2544d7b7583c216fcdfec19f6be1615"
     integrity sha512-YqvUxoOcVPnCp0VU1/56f+iKSdvIRJYPznH22BdXV3xMk75SFXhWeJkZ8C9XxUWt1b5x2X1SxuFygW1U0FmkEQ==
   
+  js-beautify@^1.13.0:
+    version "1.13.0"
+    resolved "https://registry.yarnpkg.com/js-beautify/-/js-beautify-1.13.0.tgz#a056d5d3acfd4918549aae3ab039f9f3c51eebb2"
+    integrity sha512-/Tbp1OVzZjbwzwJQFIlYLm9eWQ+3aYbBXLSaqb1mEJzhcQAfrqMMQYtjb6io+U6KpD0ID4F+Id3/xcjH3l/sqA==
+    dependencies:
+      config-chain "^1.1.12"
+      editorconfig "^0.15.3"
+      glob "^7.1.3"
+      mkdirp "^1.0.4"
+      nopt "^5.0.0"
+  
   js-string-escape@^1.0.1:
     version "1.0.1"
     resolved "https://registry.yarnpkg.com/js-string-escape/-/js-string-escape-1.0.1.tgz#e2625badbc0d67c7533e9edc1068c587ae4137ef"
@@ -4893,7 +4941,7 @@ Lockfile:
     dependencies:
       pseudomap "^1.0.1"
   
-  lru-cache@^4.0.1:
+  lru-cache@^4.0.1, lru-cache@^4.1.5:
     version "4.1.5"
     resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-4.1.5.tgz#8bbe50ea85bed59bc9e33dcab8235ee9bcf443cd"
     integrity sha512-sWZlbEP2OsHNkXrMl5GYk/jKk70MBng6UU4YI/qGDYbgf6YbP4EvmqISbXCoJiRKs+1bSpFHVgQxvJ17F2li5g==
@@ -5211,6 +5259,11 @@ Lockfile:
     dependencies:
       minimist "^1.2.5"
   
+  mkdirp@^1.0.4:
+    version "1.0.4"
+    resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-1.0.4.tgz#3eb5ed62622756d79a5f0e2a221dfebad75c2f7e"
+    integrity sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==
+  
   modify-values@^1.0.0:
     version "1.0.1"
     resolved "https://registry.yarnpkg.com/modify-values/-/modify-values-1.0.1.tgz#b3939fa605546474e3e3e3c63d64bd43b4ee6022"
@@ -5310,6 +5363,13 @@ Lockfile:
     version "1.0.0"
     resolved "https://registry.yarnpkg.com/node-status-codes/-/node-status-codes-1.0.0.tgz#5ae5541d024645d32a58fcddc9ceecea7ae3ac2f"
     integrity sha1-WuVUHQJGRdMqWPzdyc7s6nrjrC8=
+  
+  nopt@^5.0.0:
+    version "5.0.0"
+    resolved "https://registry.yarnpkg.com/nopt/-/nopt-5.0.0.tgz#530942bb58a512fccafe53fe210f13a25355dc88"
+    integrity sha512-Tbj67rffqceeLpcRXrT7vKAN8CwfPeIBgM7E6iBkmKLV7bEMwpGgYLGv0jACUsECaa/vuxP0IjEont6umdMgtQ==
+    dependencies:
+      abbrev "1"
   
   normalize-package-data@^2.3.0, normalize-package-data@^2.3.2, normalize-package-data@^2.3.4, normalize-package-data@^2.5.0:
     version "2.5.0"
@@ -5940,6 +6000,11 @@ Lockfile:
       cosmiconfig "^7.0.0"
       import-cwd "^3.0.0"
   
+  posthtml-attrs-sorter@^1.1.0:
+    version "1.1.0"
+    resolved "https://registry.yarnpkg.com/posthtml-attrs-sorter/-/posthtml-attrs-sorter-1.1.0.tgz#ada71e3b7f6a4ad6cfdf4ecb9e3fc14a091410e3"
+    integrity sha1-raceO39qStbP307Lnj/BSgkUEOM=
+  
   posthtml-parser@^0.5.0:
     version "0.5.3"
     resolved "https://registry.yarnpkg.com/posthtml-parser/-/posthtml-parser-0.5.3.tgz#e95b92e57d98da50b443e116fcee39466cd9012e"
@@ -5954,7 +6019,7 @@ Lockfile:
     dependencies:
       htmlparser2 "^5.0.1"
   
-  posthtml-render@^1.2.3:
+  posthtml-render@^1.2.3, posthtml-render@^1.4.0:
     version "1.4.0"
     resolved "https://registry.yarnpkg.com/posthtml-render/-/posthtml-render-1.4.0.tgz#40114070c45881cacb93347dae3eff53afbcff13"
     integrity sha512-W1779iVHGfq0Fvh2PROhCe2QhB8mEErgqzo1wpIt36tCgChafP+hbXIhLDOM8ePJrZcFs0vkNEtdibEWVqChqw==
@@ -6025,6 +6090,11 @@ Lockfile:
     version "2.0.3"
     resolved "https://registry.yarnpkg.com/progress/-/progress-2.0.3.tgz#7e8cf8d8f5b8f239c1bc68beb4eb78567d572ef8"
     integrity sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==
+  
+  proto-list@~1.2.1:
+    version "1.2.4"
+    resolved "https://registry.yarnpkg.com/proto-list/-/proto-list-1.2.4.tgz#212d5bfe1318306a420f6402b8e26ff39647a849"
+    integrity sha1-IS1b/hMYMGpCD2QCuOJv85ZHqEk=
   
   proto-props@^2.0.0:
     version "2.0.0"
@@ -6619,7 +6689,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/semver-regex/-/semver-regex-2.0.0.tgz#a93c2c5844539a770233379107b38c7b4ac9d338"
     integrity sha512-mUdIBBvdn0PLOeP3TEkMH7HHeUP3GjsXCwKarjv/kGmUFOYg1VqEemKhoQpWMu6X2I8kHeuVdGibLGkVK+/5Qw==
   
-  "semver@2 || 3 || 4 || 5", semver@^5.0.3, semver@^5.1.0, semver@^5.7.1:
+  "semver@2 || 3 || 4 || 5", semver@^5.0.3, semver@^5.1.0, semver@^5.6.0, semver@^5.7.1:
     version "5.7.1"
     resolved "https://registry.yarnpkg.com/semver/-/semver-5.7.1.tgz#a954f931aeba508d307bbf069eff0c01c96116f7"
     integrity sha512-sauaDf/PZdVgrLTNYHRtpXa1iRiKcaebiKQ1BJdpQlWH2lCvexQdX55snPFyK7QzpudqbCI0qXFfOasHdyNDGQ==
