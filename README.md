@@ -1,8 +1,6 @@
 # posthtml-iconify <img align="right" height="100" title="PostHTML logo" src="http://posthtml.github.io/posthtml/logo.svg">
 
-[![Actions Status][action]][action-url]
 [![NPM][npm]][npm-url]
-[![Coverage][cover]][cover-badge]
 
 Render icons from [Iconify](https://iconify.design) into SVG with PostHTML.
 
@@ -59,14 +57,5 @@ No options currently (this may change in the future).
 
 See [PostHTML Guidelines](https://github.com/posthtml/posthtml/tree/master/docs).
 
-[action]: https://github.com/arm32x/posthtml-iconify/workflows/Actions%20Status/badge.svg
-[action-url]: https://github.com/arm32x/posthtml-iconify/actions?query=workflow%3A%22CI+tests%22
-
 [npm]: https://img.shields.io/npm/v/posthtml-iconify.svg
 [npm-url]: https://npmjs.com/package/posthtml-iconify
-
-[style]: https://img.shields.io/badge/code_style-XO-5ed9c7.svg
-[style-url]: https://github.com/xojs/xo
-
-[cover]: https://coveralls.io/repos/arm32x/posthtml-iconify/badge.svg?branch=master
-[cover-badge]: https://coveralls.io/r/arm32x/posthtml-iconify?branch=master
