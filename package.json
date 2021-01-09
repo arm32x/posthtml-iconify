@@ -1,16 +1,16 @@
 {
   "name": "posthtml-iconify",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "PostHTML plugin description",
   "license": "MIT",
   "repository": "arm32x/posthtml-iconify",
   "author": "ARM32",
-  "main": "dist",
+  "main": "dist/index.js",
   "engines": {
     "node": ">=10"
   },
   "scripts": {
-    "build": "rm -rf dist && tsup src/*.ts --format cjs --dts --minify",
+    "build": "rm -rf dist && tsup src/*.ts --format cjs --minify",
     "dev": "npm run build -- --watch",
     "test": "c8 ava"
   },
